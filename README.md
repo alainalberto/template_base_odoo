@@ -39,8 +39,66 @@ La plantilla base de este repositorio está diseñada para ayudar a los desarrol
 ### Pasos de instalación
 
 1. **Clonar el repositorio:**
-
    ```bash
    git clone https://github.com/alainalberto/template_base_odoo.git
    cd template_base_odoo
 
+2. **Crear un entorno virtual:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   
+3. **Instalar dependencias:**
+   ```bash
+   pip install -r requirements.txt
+   
+4. **Configurar Odoo:**
+
+  - Abre el archivo de configuración de Odoo (odoo.conf) y agrega la ruta de este módulo:
+    ```plaintext
+    addons_path = /path/to/template_base_odoo,/path/to/other/addons
+
+ - Si es necesario, crea una base de datos PostgreSQL para Odoo:
+   ```bash
+   createdb odoo_db
+
+5. **Ejecutar Odoo:**
+
+   Inicia el servidor de Odoo usando el archivo de configuración:
+
+   ``1bash
+   ./odoo-bin -c /etc/odoo/odoo.conf
+
+6. **Instalar el módulo:**
+
+   Una vez que el servidor está en funcionamiento, ve a la interfaz web de Odoo, entra en la sección de Apps, busca el módulo e instálalo.
+
+## Uso
+Una vez instalado el módulo, puedes empezar a personalizarlo según tus necesidades:
+
+- Añade nuevos modelos en la carpeta models/.
+- Define nuevas vistas y layouts de formularios en views/.
+- Personaliza los derechos de acceso en security/.
+ Para ver un ejemplo de cómo consumir la API del módulo, puedes ejecutar el siguiente comando:
+  ```bash
+  curl -X GET http://localhost:8069/api/tu_modulo_endpoint
+
+## Pruebas
+Si el repositorio incluye pruebas, puedes ejecutarlas con:
+ ```bash
+ python -m unittest discover tests
+O con el gestor de dependencias de Odoo:
+  ```bash
+  ./odoo-bin --test-enable --db-filter=odoo_db --log-level=test
+
+## Contribución 
+Si deseas contribuir a este proyecto, sigue estos pasos:
+
+Haz un Fork del proyecto.
+Crea una nueva rama para tu funcionalidad (git checkout -b feature-nueva-funcionalidad).
+Realiza los cambios necesarios y haz un commit (git commit -m 'Añadir nueva funcionalidad').
+Empuja los cambios a tu rama (git push origin feature-nueva-funcionalidad).
+Abre un Pull Request para que se revise tu contribución.
+
+## Licencia
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles. 
