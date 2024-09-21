@@ -66,7 +66,7 @@ La plantilla base de este repositorio está diseñada para ayudar a los desarrol
 
    Inicia el servidor de Odoo usando el archivo de configuración:
 
-   ``1bash
+   ```bash
    ./odoo-bin -c /etc/odoo/odoo.conf
 
 6. **Instalar el módulo:**
@@ -85,14 +85,15 @@ Una vez instalado el módulo, puedes empezar a personalizarlo según tus necesid
 
 ## Pruebas
 Si el repositorio incluye pruebas, puedes ejecutarlas con:
- ```bash
- python -m unittest discover tests
+    
+   python -m unittest discover tests
+
 O con el gestor de dependencias de Odoo:
-  ```bash
+  
   ./odoo-bin --test-enable --db-filter=odoo_db --log-level=test
 
 ## Contribución 
-Si deseas contribuir a este proyecto, sigue estos pasos:
+ Si deseas contribuir a este proyecto, sigue estos pasos:
 
 Haz un Fork del proyecto.
 Crea una nueva rama para tu funcionalidad (git checkout -b feature-nueva-funcionalidad).
